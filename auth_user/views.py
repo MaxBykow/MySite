@@ -2,7 +2,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 from .forms import UserRegisterForm, UserLoginForm
 from django.urls import reverse_lazy
 from django.views import View
@@ -24,3 +24,7 @@ class LoginUser(LoginView):
 def logout_fun(request):
     logout(request)
     return redirect('log')
+
+class Account(DetailView):
+    template_name = 'auth_user/my_personal_acc.html'
+

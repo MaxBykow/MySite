@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 
+from auth_user.models import Image
+
 
 # класс для формы регистрации
 class UserRegisterForm(UserCreationForm):
@@ -25,3 +27,10 @@ class UserLoginForm(AuthenticationForm):
     class Meta:
         model = User
         fields = ('username', 'password')
+
+
+class ImageDownload(forms.ModelForm):
+
+    class Meta:
+        model = Image
+        fields = '__all__'
